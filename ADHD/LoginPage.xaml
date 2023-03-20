@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ADHD.LoginPage"
+             Background="#0069a6"
+             xmlns:vm="clr-namespace:ADHD.ViewModels"
+             x:DataType="vm:LoginPageViewModel"
+             Shell.NavBarIsVisible="False"
+             Title="LoginPage">
+    <ScrollView>
+        <VerticalStackLayout Spacing="25" Padding="30,0" VerticalOptions="Center">
+            <Image Source="dotnet_bot.svg" Margin="0,0,0,15"/>
+            <Frame Padding=" 12,5">
+                <Entry Placeholder="Email" Text="{Binding EmailText}" TextColor="Black"/>
+             </Frame>
+            <Frame Padding=" 12,5">
+                <Entry Placeholder="password" IsPassword="True" Text="{Binding PasswordText}" TextColor="Black"/>
+            </Frame>
+            <Button Text="login" Command="{Binding LoginCommand}"/>
+            <Button Text="Create account" Command="{Binding CreateAccountCommand }" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -18,8 +18,7 @@ namespace ADHD.ViewModels
         
         public FormViewModel()
         {
-            DailyActivities = new ObservableCollection<ActivityModel>();
-            realm = Realm.GetInstance(AppConfig.RealmAppId);
+           realm = Realm.GetInstance(AppConfig.RealmAppId);
         }
 
         [ObservableProperty]
@@ -60,19 +59,7 @@ namespace ADHD.ViewModels
             ActivityType = string.Empty;
         }
 
-        [RelayCommand]
-        async void GetActivity()
-        {
-            var activities = realm.All<ActivityModel>();
-
-            foreach(var activity in activities)
-            {
-                DailyActivities.Add(activity);
-            }
-
-           
-
-        }
+        
     }
 
 }

@@ -9,8 +9,7 @@ namespace ADHD.Models
     {
 
         [Indexed]
-        [PrimaryKey] 
-        //public ObjectId id { get; set; } = ObjectId.GenerateNewId();
+        
        
         [Realms.Required]
         [Display(Prompt ="Activity name")]

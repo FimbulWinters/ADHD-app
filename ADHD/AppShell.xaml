@@ -7,9 +7,14 @@
     Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
-        Title="ADHD"
+        Title="Login"
+        ContentTemplate="{DataTemplate local:LoginPage}"
+        Route="Login" />
+
+    <ShellContent
+        Title="Main"
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Route="Main" />
 
     <ShellContent
         Title="Edit your day"
