@@ -1,10 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             xmlns:model="clr-namespace:ADHD"
+             xmlns:viewModel="clr-namespace:ADHD.ViewModels"
              x:Class="ADHD.MainPage">
+    <ContentPage.BindingContext>
+        <viewModel:ChartViewModel />
+    </ContentPage.BindingContext>
 
-    <ScrollView>
-       
-    </ScrollView>
+
+
+    <VerticalStackLayout>
+        <chart:SfCircularChart>
+            <chart:SfCircularChart.Legend>
+                <chart:ChartLegend/>
+            </chart:SfCircularChart.Legend>
+            <chart:SfCircularChart.BindingContext>
+                <viewModel:ChartViewModel/>
+            </chart:SfCircularChart.BindingContext>
+            <chart:DoughnutSeries ItemsSource="{Binding Activities}" XBindingPath="ActivityName" YBindingPath="ActivityTimes" ShowDataLabels="False" InnerRadius="0.5"/>
+           
+        </chart:SfCircularChart>
+
+
+        <Button Text="My Activities" Margin="50,0,50,0" BackgroundColor="DimGrey" CharacterSpacing="10">
+            <Button.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="GoToActivitiesPageAsync"/>
+            </Button.GestureRecognizers>
+        </Button>
+
+
+
+    </VerticalStackLayout>
 
 </ContentPage>

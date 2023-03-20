@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+    
+    
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModel="clr-namespace:ADHD.ViewModels"
+    x:DataType="viewModel:FormViewModel"
+    x:Class ="ADHD.AddNewActivitiesPage"
+    Title="Add Activity"
+    >
+
+    <ContentPage.BindingContext>
+        <viewModel:FormViewModel />
+    </ContentPage.BindingContext>
+
+
+    <VerticalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Activty Name" Margin="10"/>
+            <Entry x:DataType="viewModel:FormViewModel" x:Name="activityName" Placeholder ="Enter activity name" Text="{Binding ActivityName}"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Activity Time" Margin="10"/>
+            <Entry x:Name="activityTimes" Placeholder="Enter time period" Text="{Binding ActivityTimes}"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Activity Type" Margin="10" />
+            <Entry x:Name="activityType" Placeholder="Enter activity type" Text="{Binding ActivityType}" />
+        </HorizontalStackLayout>
+        <Button Text="Add Activity" Command="{Binding AddActivityCommand}"/>
+    </VerticalStackLayout>
+
+
+
+
+</ContentPage>

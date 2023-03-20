@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModel="clr-namespace:ADHD.ViewModels"
+    x:Class ="ADHD.ActivitiesPage"
+    Title="My Activities"
+    >
+    <ContentPage.BindingContext>
+        <viewModel:FormViewModel />
+    </ContentPage.BindingContext>
+    <StackLayout>
+        <CollectionView ItemsSource="{Binding DailyActivities}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Column="1"
+                       Text="{Binding ActivityName}"
+                       FontAttributes="Bold" />
+                        <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Text="{Binding ActivityTimes}"
+                       FontAttributes="Italic"
+                       VerticalOptions="End" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Frame>
+
+        </Frame>
+        <Button Text="Add new Activity" Margin="50,0,50,0" BackgroundColor="DimGrey" CharacterSpacing="5">
+            <Button.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="GoToAddNewActivityAsync"/>
+            </Button.GestureRecognizers>
+        </Button>
+    </StackLayout>
+
+</ContentPage>
